@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Writing Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('your-background-image.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        .letter-container {
+            padding: 20px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            max-width: 80%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: type 5s steps(50) forwards;
+        }
+        @keyframes type {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <!-- You can replace this content later with your actual letter text -->
+        Dear Yoru,<br><br>
+        I hope this message finds you well! I just wanted to let you know that we are thinking of you and we appreciate everything you do. Looking forward to seeing you soon!<br><br>
+        Sincerely,<br><br>
+        [Your Name]
+    </div>
+</body>
+</html>

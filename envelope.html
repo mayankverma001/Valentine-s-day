@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Animation Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: lavender;
+            background-image: radial-gradient(circle, white 10%, transparent 10%), radial-gradient(circle, white 10%, transparent 10%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .letter {
+            position: absolute;
+            top: 20%; /* Adjusted position to reduce space from the top */
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 90%;
+            text-align: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: letter-writing 5s steps(50) forwards;
+        }
+        @keyframes letter-writing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+        .button {
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #ff8b8b;
+            color: #fff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            opacity: 0;
+            animation: show-button 1s ease-in-out 5s forwards;
+        }
+        @keyframes show-button {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        My lovely Nisarga,<br><br>
+        You’ve made me realize something beautiful, I can’t quite put it into words, but I’ll try, even though miles may separate us physically, my heart is entirely yours. There’s no distance that can change that. Every thought, every moment, is consumed by you, and I find myself dreaming of the day I can be by your side.Your smile is a constant reminder that everything can be right, no matter how chaotic the world may seem. It’s like your smile has the power to calm all the storms in my heart, and for that, I am forever grateful.ou’re beautiful, cute, and truly remarkable in every way. There’s a light in you that makes everything feel right, even in the most difficult moments. Your smile is like a reminder that everything in the world is better with you in it. I honestly can’t imagine my life without it. I am not a writer but this is some of what I could put into words. There's something more I want say to you... :) just one more click.  <br><br>
+        Only Yours<br><br>
+        Mayank
+    </div>
+    <button class="button" onclick="window.location.href='Ask out.html';">Proceed</button>
+</body>
+</html>

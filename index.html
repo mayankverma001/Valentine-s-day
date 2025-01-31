@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Surprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #FC8EAC; /* Flamingo pink */
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+
+    .welcome {
+      color: white;
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      font-family: 'Delius Unicase', cursive;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    .proceed-button {
+      background-color: white;
+      color: #FC8EAC;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s forwards ease;
+    }
+
+    .proceed-button.show {
+      display: inline-flex;
+    }
+
+    .proceed-button:hover {
+      transform: scale(1.1);
+    }
+
+    .heart-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #FF6B6B;
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: floatAllOver 5s infinite ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #FF6B6B;
+      opacity: 0.8;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @keyframes floatAllOver {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translate(calc(-50vw + 100px), calc(-50vh + 100px)) scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(50vw - 100px), calc(-100vh)) scale(0.8);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="welcome" id="welcome-text">Hey beautiful! Thanks for clicking the link.</div>
+    <button class="proceed-button" id="proceed-button" onclick="location.href='envelope.html'">
+      <span class="hearts">❤❤❤</span> PROCEED <span class="hearts">❤❤❤</span>
+    </button>
+    <div class="heart-container" id="heart-container"></div>
+  </div>
+
+  <script>
+    // Show the button after typing animation completes
+    const proceedButton = document.getElementById("proceed-button");
+    setTimeout(() => {
+      proceedButton.classList.add("show");
+    }, 4000); // Matches the typing animation duration
+
+    // Generate floating hearts
+    const heartContainer = document.getElementById('heart-container');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.top = Math.random() * 100 + '%';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+      heartContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>

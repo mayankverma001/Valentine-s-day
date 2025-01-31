@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Question</title>
+  <!-- Link to Google Fonts for "Borel" font -->
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('file:///C:/Website/Assets/1.png'); /* Local path to your image */
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+      opacity: 0; /* Initially hidden */
+      animation: fadeInText 3s forwards;
+    }
+
+    .message {
+      font-family: 'Borel', cursive; /* Apply Borel font */
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #6a2c8c; /* Dark purple color */
+    }
+
+    .message-line {
+      opacity: 0; /* Initially hidden */
+      animation: fadeInLine 2s forwards;
+    }
+
+    .message-line:nth-child(1) {
+      animation-delay: 0s; /* First line with no delay */
+    }
+
+    .message-line:nth-child(2) {
+      animation-delay: 2s; /* Second line appears after 2 seconds */
+    }
+
+    .message-line:nth-child(3) {
+      animation-delay: 4s; /* Third line appears after 4 seconds */
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      opacity: 0; /* Initially hidden */
+      animation: fadeInButtons 2s 6s forwards; /* Delayed appearance */
+    }
+
+    .btn {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background-color: #A885FF;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #C7A0FF;
+    }
+
+    /* Fade-in text animation */
+    @keyframes fadeInText {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Fade-in each line of text animation */
+    @keyframes fadeInLine {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Fade-in buttons animation (with delay) */
+    @keyframes fadeInButtons {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="message">
+      <div class="message-line">I am so sorry I made you wait</div>
+      <div class="message-line">but.</div>
+      <div class="message-line">Will you please be my Valentine?</div>
+    </div>
+    <div class="btn-container">
+      <button class="btn" id="yesBtn">Yes</button>
+      <button class="btn" id="noBtn">No</button>
+    </div>
+  </div>
+
+  <script>
+    // Handle button clicks
+    let noClickCount = 0;
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+
+    yesBtn.addEventListener('click', () => {
+      alert('Thank you meri khoobsoorat mahila, I love you.');
+    });
+
+    noBtn.addEventListener('click', () => {
+      if (noClickCount < 5) {
+        // Move the button to a random location for the first 5 clicks
+        noBtn.style.position = 'absolute';
+        noBtn.style.left = Math.random() * 90 + 'vw';
+        noBtn.style.top = Math.random() * 90 + 'vh';
+        noClickCount++;
+      } else {
+        // On the 6th click, show the final message
+        alert('Please just say yes 💕😊.');
+      }
+    });
+  </script>
+
+</body>
+</html>
